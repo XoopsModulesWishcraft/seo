@@ -208,8 +208,10 @@
 			if (is_object($GLOBALS['xoopsModule']))
 				if ($GLOBALS['xoopsModule']->getVar('dirname')=='seo') {
 					foreach($this->_obj_plugins as $key => $object) {
-						if ($target = $object->getTarget()) {
-							return $GLOBALS['xoops']->path($target);
+						if ($object->_baseurl == $_GET['baseurl']) {
+							if ($target = $object->getTarget()) {
+								return $GLOBALS['xoops']->path($target);
+							}
 						}
 					}
 				}	
